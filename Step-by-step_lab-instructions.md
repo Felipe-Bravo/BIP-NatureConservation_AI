@@ -4,9 +4,10 @@
 ### 2. Obtaining ground data
 ### 3. Importing remote sensing data from Earth Explorer
 ### 4. Extract base information to compute remote sensing metrics
+//
+//
 
-
-### Preparatory actions
+#### Preparatory actions
 Define a working directory for your work (I used to have a folder in the root directory and create inside a folder for each project. In this case my working directory will be C:\datosR\BIP-NatureConsAI
 
 ### Obtaining ground data
