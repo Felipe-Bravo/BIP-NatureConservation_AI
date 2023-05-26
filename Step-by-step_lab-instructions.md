@@ -162,8 +162,7 @@ head(validData)
 ```
 Now is the moment to create the predictions for the validation dataset (validData) and to generate the confusion matrix to detect the true/false positives and the true/false negatives. The confusion matrix is defined in our case as follows:
 
-![imagen](https://github.com/Felipe-Bravo/BIP-NatureConservation_AI/assets/18259904/622c0cac-8b3a-49d1-8be0-b5cceb7d1a4f)
-image adapted from [devopedia]([https://devopedia.org](https://devopedia.org/images/article/208/2047.1566189841.png) )
+![ConfusionMatrix-example](https://github.com/Felipe-Bravo/BIP-NatureConservation_AI/assets/18259904/4cb8f57b-12d1-42c0-ad6a-606119e3828e)
 
 ```{r, setup, include=FALSE}
 # Make predictions on the validation set
@@ -173,7 +172,25 @@ ConfusionMatrix = table(validData$Deadwood, validData$predictions)
 ConfusionMatrix
 ```
 In this example our values are:
-True Negative (TN): 218
-False Negative (FN): 14
-False Positive (FP): 1
-True Positive (TP): 1
+          True Negative (TN): 218
+          False Negative (FN): 14
+          False Positive (FP): 1
+          True Positive (TP): 1
+
+and now we can compute the sensitivity, specifity and accuracy of the model as follows:
+
+Sensitivity = TP/(TP + FN) = (Number of true positive assessment)/(Number of all positive assessment)
+Specificity = TN/(TN + FP) = (Number of true negative assessment)/(Number of all negative assessment)
+Accuracy = (TN + TP)/(TN+TP+FN+FP) = (Number of correct assessments)/Number of all assessments)
+
+```{r, setup, include=FALSE}
+sensitivity <- 1/(1+14)
+sensitivity
+
+specifity <- 218/(218+1)
+specifity
+
+accuracy <- (218+1)/(224+1+16+1)
+accuracy
+```
+It seems that accuracy is quite high (if you run the code, you get accuracy = 0.9049587) However, if you observe the original dataset, you can see that absence of deadwood (Deadwood=0) is the most frequent situation in our plots (over the whole dataset, no deadwood is the outcome in a 93,7% of the plots) Later we'll go back on this issue.
