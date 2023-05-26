@@ -8,6 +8,7 @@
 ### 6. Preparing data for ML models
 ### 7. Fitting ML models
    Binomial logistic regression
+   Naive bayes
 ### 8. Assessing ML models
 ---------------------
 
@@ -148,6 +149,8 @@ validData   <- data_ML[!sample, ]
 ```
 ### Fitting ML models
 
+**Binomial logistic regression
+
 Our first ML model will be based on a [binomial logistic regression](https://en.wikipedia.org/wiki/Logistic_regression) where the response variable will be deadwood presence (Variable Deadwood in the dataset) After several attemps we arrived to a model where the explanatory variables are the latitude (Y), the forest type (Plantation=1, otherwise=0) and SDI ([Stand Density Index](https://en.wikipedia.org/wiki/Stand_density_index))
 
 ```{r, setup, include=FALSE}
@@ -194,7 +197,43 @@ sensitivity
 specifity <- 218/(218+1)
 specifity
 
-accuracy <- (218+1)/(224+1+16+1)
+accuracy <- (218+1)/(218+1+14+1)
 accuracy
 ```
 It seems that accuracy is quite high (if you run the code, you get accuracy = 0.9049587) However, if you observe the original dataset, you can see that absence of deadwood (Deadwood=0) is the most frequent situation in our plots (over the whole dataset, no deadwood is the outcome in a 93,7% of the plots) Later we'll go back on this issue.
+
+**Naive Bayes
+
+Now we'll develop a [Naive Bayes classifier](https://en.wikipedia.org/wiki/Naive_Bayes_classifier) based on applying Bayes' theorem with strong (naive) independence assumptions between the features. As previously the response variable will be deadwood presence (Variable Deadwood in the dataset) . We'll develop the Naive Bayes classifier with the train dataset and later we'll test with the validation dataset. 
+
+```{r, setup, include=FALSE}
+
+# Fitting NB classifier to the train set
+install.packages('e1071')
+library(e1071)
+
+
+m <- naiveBayes(Deadwood ~ ., data = trainData)
+m
+# generating the confusion matrix
+table(predict(m, validData), validData[,4])
+```
+In this example our values, from the confusion matrix are:
+          True Negative (TN): 219
+          False Negative (FN): 0
+          False Positive (FP): 2
+          True Positive (TP): 13
+
+and now we can compute the sensitivity, specifity and accuracy as above
+
+```{r, setup, include=FALSE}
+sensitivity <- 2/(2+0)
+sensitivity
+
+specifity <- 219/(219+2)
+specifity
+
+accuracy <- (219+13)/(219+13+0+2)
+accuracy
+```
+Again the accuracy is quite high (if you run the code, you get accuracy = 0.991453) But again, wait until we check again the observed absence/presence of deadwood in the whole dataset.
