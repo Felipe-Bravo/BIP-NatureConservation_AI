@@ -5,6 +5,7 @@
 ### 3. Importing remote sensing data from Earth Explorer
 ### 4. Extract base information to compute remote sensing metrics
 ### 5. Managing the dataset
+### 6. Preparing data for ML models
 ---------------------
 
 
@@ -123,4 +124,16 @@ new_data <- subset(data, select = -c(field_1, INVENTORY_ID, province,
                                      notebook, class, subclass,
                                      band31, band31_2, band41, band41_2))
 names(new_data)
+```
+
+### Preparing data for ML models
+
+Input data in this example including 25 independent variables (columns from 2 to 4, 6, 9, 15 to 18, 21, 24 to 26, 29 to 30 and 34 to 43) and the observed variables (column 5 - so-called as "Deadwood")
+
+```{r, setup, include=FALSE}
+data_ML <- new_data[,c(2:4,5:6,9,15:18,21,24:26,29:30,34:43)]
+data_ML~Deadwood <- as.factor(data_ML~Deadwood)
+sample <- sample(c(TRUE, FALSE), nrow(data_ML), replace=TRUE, prob=c(0.7,0.3))
+trainData  <- data_ML[sample, ]
+validData   <- data_ML[!sample, ]
 ```
