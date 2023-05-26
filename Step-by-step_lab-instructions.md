@@ -19,13 +19,11 @@ Define a working directory for your work (I used to have a folder in the root di
 ### Obtaining ground data
 We'll use data from the National Forest Inventory of Spain, 3rd edition. You can get detailed information at this paper by [Alberdi et al, 2021](https://pfb.cnpf.embrapa.br/pfb/index.php/pfb/article/view/1337/580) In the following two images (from Alberdi et al, 2021) you can outlook the NFI field methodology
 
-![imagen]([https://github.com/Felipe-Bravo/BIP-NatureConservation_AI/assets/18259904/11e4f865-5213-4e4e-8035-ebc7e217e779](https://github.com/Felipe-Bravo/BIP-NatureConservation_AI/blob/master/images/Spanish-NFI-dendrometrics.png?raw=true))
-<img src="[{{site.url}}](https://raw.githubusercontent.com/Felipe-Bravo/BIP-NatureConservation_AI/master/images/Spanish-NFI-biodidersity.png)/images/equation-1.gif" style="display: block; margin: auto;" />
-<img src="[{{site.url}}/images/equation-1.gif](https://raw.githubusercontent.com/Felipe-Bravo/BIP-NatureConservation_AI/master/images/Spanish-NFI-biodiversity.png)" style="display: block; margin: auto;" />
+<img src="https://github.com/Felipe-Bravo/BIP-NatureConservation_AI/blob/master/images/Spanish-NFI-dendrometrics.png" style="display: block; margin: auto;" />
 
 Dendrometric measurements in the Spanish NFI plots
 
-![imagen]([https://github.com/Felipe-Bravo/BIP-NatureConservation_AI/assets/18259904/2dad8170-2572-4cbe-8a04-07d44f229e37](https://github.com/Felipe-Bravo/BIP-NatureConservation_AI/blob/master/images/Spanish-NFI-biodiversity.png?raw=true))
+<img src="https://github.com/Felipe-Bravo/BIP-NatureConservation_AI/blob/master/images/Spanish-NFI-biodiversity.png" style="display: block; margin: auto;" />
 
 Biodiversity and associated measurements in the Spanish NFIplots
 
@@ -35,7 +33,8 @@ By coding you invest time in understanding the data structure and the processes 
 ### Importing remote sensing data from Earth Explorer
 First we should select the adequate satellite for our project. As the NFI3 field data in Palencia where obtained in 2003, we'll use Landsat05 resources.
 
-![imagen](https://github.com/Felipe-Bravo/BIP-NatureConservation_AI/assets/18259904/4024f7b3-9ea7-4dae-8534-721b03290c11)
+<img src="https://github.com/Felipe-Bravo/BIP-NatureConservation_AI/blob/master/images/LANDSAT_missions.jpg"  style="display: block; margin: auto;" />
+
 The 40 year history of landsat satellite missions. Source: [USGS - USGS Landsat Timeline](https://www.earthdatascience.org/courses/use-data-open-source-python/multispectral-remote-sensing/landsat-in-Python/) More details at [this link](https://www.earthdatascience.org/courses/use-data-open-source-python/multispectral-remote-sensing/landsat-in-Python/) 
 
 The actions you must do are the following:
@@ -173,7 +172,7 @@ head(validData)
 ```
 Now is the moment to create the predictions for the validation dataset (validData) and to generate the confusion matrix to detect the true/false positives and the true/false negatives. The confusion matrix is defined in our case as follows:
 
-![ConfusionMatrix-example](https://github.com/Felipe-Bravo/BIP-NatureConservation_AI/assets/18259904/4cb8f57b-12d1-42c0-ad6a-606119e3828e)
+<img src="https://github.com/Felipe-Bravo/BIP-NatureConservation_AI/blob/master/images/ConfusionMatrix-example.png" style="display: block; margin: auto;" />
 
 ```{r, setup, include=FALSE}
 # Make predictions on the validation set
