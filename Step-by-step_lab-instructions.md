@@ -1,9 +1,10 @@
 # Dead wood detection by ML
-## Lab steps
+## Workflow
 ### 1. Preparatory actions
 ### 2. Obtaining ground data
 ### 3. Importing remote sensing data from Earth Explorer
 ### 4. Extract base information to compute remote sensing metrics
+### 5. Managing the dataset
 ---------------------
 
 
@@ -62,3 +63,22 @@ You will get a new layer with the bands values as columns. Now you can export th
 
 ### Managing the dataset
 Now we'll start to work with R to manage the dataset: import, data consolidation, remote sensing metrics computation and database adequation for further analysis
+
+'''r
+#### Basic steps ####
+
+# path
+setwd("C:/datosR/BIP-NatConsAI")  # pc
+
+# installing and requesting libraries
+library(plyr)
+library(dplyr)
+library(stringr)
+
+# Spanish NFI3 data
+data <- read.csv('finalplots-Palencia.csv')
+
+# consolidating band3 and 4 variables
+data$band3 <- ifelse(!is.na(data$band31), data$band31, data$band31_2)
+data$band4 <- ifelse(!is.na(data$band41), data$band41, data$band41_2)
+'''
