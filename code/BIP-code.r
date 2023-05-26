@@ -131,37 +131,4 @@ specifity_NB
 accuracy_NB <- (219+13)/(219+13+0+2)
 accuracy_NB
 
-####### SVM #############################################
-
-
-# Fitting SVM to the train set
-install.packages('e1071')
-library(e1071)
-
-svm_model = svm(formula = trainData$Deadwood ~ .,
-                data = trainData,
-                type = 'C-classification',
-                cost = 100,
-                kernel = 'linear')
-summary(svm_model)
-#### Not functioning from here
-# Predicting the validData set results
-validData$y_pred = predict(svm_model, newdata = validData[-4])
-
-# Making the Confusion Matrix
-cm = table(validData[,4], y_pred)
-print(cm)
-pred_train <- predict(svm_model, train)
-mean(pred_train == train$Cluster) # Accuracy of train data
-pred_validData <- predict(svm_model, validData)
-mean(pred_validData == validData$Cluster) # Accuracy of validData data
-
-confusionMatrix(y_pred, validData$Cluster)
-#plot(svm_model, train, Cluster ~ .)
-
-
-
-
-
-
 
