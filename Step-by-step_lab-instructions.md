@@ -19,10 +19,14 @@ Define a working directory for your work (I used to have a folder in the root di
 ### Obtaining ground data
 We'll use data from the National Forest Inventory of Spain, 3rd edition. You can get detailed information at this paper by [Alberdi et al, 2021](https://pfb.cnpf.embrapa.br/pfb/index.php/pfb/article/view/1337/580) In the following two images (from Alberdi et al, 2021) you can outlook the NFI field methodology
 
-[imagen]([https://github.com/Felipe-Bravo/BIP-NatureConservation_AI/assets/18259904/11e4f865-5213-4e4e-8035-ebc7e217e779](https://github.com/Felipe-Bravo/BIP-NatureConservation_AI/blob/master/images/Spanish-NFI-dendrometrics.png?raw=true))
+![imagen]([https://github.com/Felipe-Bravo/BIP-NatureConservation_AI/assets/18259904/11e4f865-5213-4e4e-8035-ebc7e217e779](https://github.com/Felipe-Bravo/BIP-NatureConservation_AI/blob/master/images/Spanish-NFI-dendrometrics.png?raw=true))
+<img src="[{{site.url}}](https://raw.githubusercontent.com/Felipe-Bravo/BIP-NatureConservation_AI/master/images/Spanish-NFI-biodidersity.png)/images/equation-1.gif" style="display: block; margin: auto;" />
+<img src="[{{site.url}}/images/equation-1.gif](https://raw.githubusercontent.com/Felipe-Bravo/BIP-NatureConservation_AI/master/images/Spanish-NFI-biodiversity.png)" style="display: block; margin: auto;" />
+
 Dendrometric measurements in the Spanish NFI plots
 
-[imagen]([https://github.com/Felipe-Bravo/BIP-NatureConservation_AI/assets/18259904/2dad8170-2572-4cbe-8a04-07d44f229e37](https://github.com/Felipe-Bravo/BIP-NatureConservation_AI/blob/master/images/Spanish-NFI-biodiversity.png?raw=true))
+![imagen]([https://github.com/Felipe-Bravo/BIP-NatureConservation_AI/assets/18259904/2dad8170-2572-4cbe-8a04-07d44f229e37](https://github.com/Felipe-Bravo/BIP-NatureConservation_AI/blob/master/images/Spanish-NFI-biodiversity.png?raw=true))
+
 Biodiversity and associated measurements in the Spanish NFIplots
 
 The raw NFI data are freely available at this [link](https://www.miteco.gob.es/es/biodiversidad/servicios/banco-datos-naturaleza/informacion-disponible/cartografia_informacion_disp.aspx) We'll use the data from the Palencia province NFI3 (you can find the preprocessed data at the data folder in this repository and the R code to obtain such data set in this [SMART Global Ecosystems repository](https://github.com/SMART-Global-Ecosystems/BIP_2022-23).
