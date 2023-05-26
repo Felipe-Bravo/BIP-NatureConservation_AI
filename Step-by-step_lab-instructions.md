@@ -179,11 +179,13 @@ In this example our values are:
           False Positive (FP): 1
           True Positive (TP): 1
 
-and now we can compute the sensitivity, specifity and accuracy of the model as follows:
+and now we can compute the [sensitivity, specifity](https://en.wikipedia.org/wiki/Sensitivity_and_specificity) and [accuracy](https://en.wikipedia.org/wiki/Accuracy_and_precision#In_classification) of the model as follows:
 
 Sensitivity = TP/(TP + FN) = (Number of true positive assessment)/(Number of all positive assessment)
+
 Specificity = TN/(TN + FP) = (Number of true negative assessment)/(Number of all negative assessment)
-Accuracy = (TN + TP)/(TN+TP+FN+FP) = (Number of correct assessments)/Number of all assessments)
+
+Accuracy = (TN + TP)/(TN+TP+FN+FP) = (Number of correct assessments)/(Number of all assessments)
 
 ```{r, setup, include=FALSE}
 sensitivity <- 1/(1+14)
