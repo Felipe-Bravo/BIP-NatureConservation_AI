@@ -82,7 +82,25 @@ data <- read.csv('finalplots-Palencia.csv')
 data$band3 <- ifelse(!is.na(data$band31), data$band31, data$band31_2)
 data$band4 <- ifelse(!is.na(data$band41), data$band41, data$band41_2)
 ```
+To continue we'll define new field metrics (proportions of trees by size classes and proportion of the dominant species by basal area)
+
+```{r, setup, include=FALSE}
+# generating new variables by combination of the raw variables
+# number of trees by diameter classes
+
+data$finewood <- data$CD_0_75 + data$CD_75_125 + data$CD_125_175
+data$mediumwood <- data$CD_175_225 + data$CD_225_275 + data$CD_275_325
+data$bigwood <- data$CD_325_375 + data$CD_375_425 + data$CD_425_
+
+#computing proportions
+data$finewood_ratio <- data$finewood/data$N
+data$mediumwood_ratio <- data$mediumwood/data$N
+data$bigwood_ratio <- data$bigwood/data$N
+data$ba_domsp_ratio <- data$G_sp_1/data$G
+data$ba_alive_ratio <-data$G_alive/data$G
+```
 Once we have this we're going to compute diferent remote sensing metrics (NDVI and SAVI)
+
 **NDVI** (Normalized Difference Vegetation Index) isused to quantify vegetation greenness and is useful n understanding vegetation density and assessing changes in plant health. NDVI is calculated as a ratio between the red (R) and near infrared (NIR) values (see details at https://www.usgs.gov/landsat-missions/landsat-normalized-difference-vegetation-index)
 
 NDVI =  (NIR - R) / (NIR + R)
