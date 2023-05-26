@@ -8,6 +8,7 @@
 ### 6. Preparing data for ML models
 ### 7. Fitting ML models
    Binomial logistic regression
+   
    Naive bayes
 ### 8. Assessing ML models
 ---------------------
@@ -241,4 +242,4 @@ specifity
 accuracy <- (219+13)/(219+13+0+2)
 accuracy
 ```
-Again the accuracy is quite high (if you run the code, you get accuracy = 0.991453) But again, wait until we check again the observed absence/presence of deadwood in the whole dataset.
+Again the accuracy is quite high (if you run the code, you get accuracy = 0.991453) But again, wait until we check the observed absence/presence of deadwood in the whole dataset.
