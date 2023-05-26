@@ -162,6 +162,7 @@ head(validData)
 ```
 Now is the moment to create the predictions for the validation dataset (validData) and to generate the confusion matrix to detect the true/false positives and the true/false negatives. The confusion matrix is defined in our case as follows:
 
+![imagen](https://github.com/Felipe-Bravo/BIP-NatureConservation_AI/assets/18259904/622c0cac-8b3a-49d1-8be0-b5cceb7d1a4f)
 image adapted from [devopedia]([https://devopedia.org](https://devopedia.org/images/article/208/2047.1566189841.png) )
 
 ```{r, setup, include=FALSE}
@@ -171,3 +172,8 @@ validData$predictions <- ifelse(validData$logistic_model_probs >0.5, 1, 0)
 ConfusionMatrix = table(validData$Deadwood, validData$predictions)
 ConfusionMatrix
 ```
+In this example our values are:
+True Negative (TN): 218
+False Negative (FN): 14
+False Positive (FP): 1
+True Positive (TP): 1
