@@ -6,6 +6,7 @@
 ### 4. Extract base information to compute remote sensing metrics
 ### 5. Managing the dataset
 ### 6. Preparing data for ML models
+### 7. Fitting ML models
 ---------------------
 
 
@@ -120,9 +121,15 @@ data$SAVI = ((data$band4 - data$band3)/(data$band4 + data$band3+0.5))*(1.5)
 To finalize the preparatory management we'll adequate the dataset for further analysis by keeping only the key variables in the dataset
 
 ```{r, setup, include=FALSE}
-new_data <- subset(data, select = -c(field_1, INVENTORY_ID, province,
-                                     notebook, class, subclass,
-                                     band31, band31_2, band41, band41_2))
+new_data <- subset(data, select = -c(field_1, INVENTORY_ID, province
+                                     ,notebook, class, subclass
+                                     ,CD_0_75, CD_75_125, CD_125_175, CD_175_225, CD_225_275
+                                     ,CD_275_325, CD_325_375, CD_375_425, CD_425_
+                                     ,band31, band31_2, band41, band41_2))
+
+new_data$Deadwood <- ifelse(new_data$Deadwood=="false",0,1)
+new_data$Forest_type <- ifelse(new_data$Forest_type=="plantation",1,0)
+
 names(new_data)
 ```
 
@@ -136,4 +143,31 @@ data_ML~Deadwood <- as.factor(data_ML~Deadwood)
 sample <- sample(c(TRUE, FALSE), nrow(data_ML), replace=TRUE, prob=c(0.7,0.3))
 trainData  <- data_ML[sample, ]
 validData   <- data_ML[!sample, ]
+```
+### Fitting ML models
+
+Our first ML model will be based on a [binomial logistic regression](https://en.wikipedia.org/wiki/Logistic_regression) where the response variable will be deadwood presence (Variable Deadwood in the dataset) After several attemps we arrived to a model where the explanatory variables are the latitude (Y), the forest type (Plantation=1, otherwise=0) and SDI ([Stand Density Index](https://en.wikipedia.org/wiki/Stand_density_index))
+
+```{r, setup, include=FALSE}
+#building the logistic model
+
+logistic_model <- glm(Deadwood~ Y + Forest_type  + SDI  , data=trainData,
+                      family= binomial)
+summary(logistic_model)
+validData$logistic_model_probs
+validData$logistic_model_probs<-predict(logistic_model, 
+                                type="response", newdata=validData)
+head(validData)
+
+```
+Now is the moment to create the predictions for the validation dataset (validData) and to generate the confusion matrix to detect the true/false positives and the true/false negatives. The confusion matrix is defined in our case as follows:
+
+image adapted from [devopedia]([https://devopedia.org](https://devopedia.org/images/article/208/2047.1566189841.png) )
+
+```{r, setup, include=FALSE}
+# Make predictions on the validation set
+
+validData$predictions <- ifelse(validData$logistic_model_probs >0.5, 1, 0)
+ConfusionMatrix = table(validData$Deadwood, validData$predictions)
+ConfusionMatrix
 ```
