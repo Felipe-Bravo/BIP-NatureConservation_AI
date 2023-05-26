@@ -7,6 +7,8 @@
 ### 5. Managing the dataset
 ### 6. Preparing data for ML models
 ### 7. Fitting ML models
+    #### Binomial logistic regression
+### 8. Assessing ML models
 ---------------------
 
 
