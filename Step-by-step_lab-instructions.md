@@ -62,13 +62,13 @@ The next dialogue should be fairly self explanatory. After clicking OK from this
 You will get a new layer with the bands values as columns. Now you can export the final file by right click on the layer in the Layers panel, and choose "Export", then 'Save features as" and finallay as format choose 'Comma Separated Value [CSV]'
 
 ### Managing the dataset
-Now we'll start to work with R to manage the dataset: import, data consolidation, remote sensing metrics computation and database adequation for further analysis
+Now we'll start to work with R to manage the dataset: import and data consolidation.
 
 ```{r, setup, include=FALSE}
 #### Basic steps ####
 
 # path
-setwd("C:/datosR/BIP-NatConsAI")  # pc
+setwd("C:/Writehere/yourdesiredfolder") 
 
 # installing and requesting libraries
 library(plyr)
@@ -81,4 +81,28 @@ data <- read.csv('finalplots-Palencia.csv')
 # consolidating band3 and 4 variables
 data$band3 <- ifelse(!is.na(data$band31), data$band31, data$band31_2)
 data$band4 <- ifelse(!is.na(data$band41), data$band41, data$band41_2)
+```
+Once we have this we're going to compute diferent remote sensing metrics (NDVI and SAVI)
+**NDVI** (Normalized Difference Vegetation Index) isused to quantify vegetation greenness and is useful n understanding vegetation density and assessing changes in plant health. NDVI is calculated as a ratio between the red (R) and near infrared (NIR) values (see details at https://www.usgs.gov/landsat-missions/landsat-normalized-difference-vegetation-index)
+
+NDVI =  (NIR - R) / (NIR + R)
+
+```{r, setup, include=FALSE}
+data$NDVI = (data$band4 - data$band3)/(data$band4 + data$band3)
+```
+**SAVI** (Soil Adjusted Vegetation Index) is used to correct Normalized Difference Vegetation Index (NDVI) for the influence of soil brightness in areas where vegetative cover is low. Landsat Surface Reflectance-derived SAVI is calculated as a ratio between the R and NIR values with a soil brightness correction factor (L) defined as 0.5 to accommodate most land cover types.
+
+SAVI = ((NIR - R) / (NIR + R + L)) * (1 + L)
+
+```{r, setup, include=FALSE}
+data$SAVI = ((data$band4 - data$band3)/(data$band4 + data$band3+0.5))*(1.5)
+```
+
+To finalize the preparatory management we'll adequate the dataset for further analysis by keeping only the key variables in the dataset
+
+```{r, setup, include=FALSE}
+new_data <- subset(data, select = -c(field_1, INVENTORY_ID, province,
+                                     notebook, class, subclass,
+                                     band31, band31_2, band41, band41_2))
+names(new_data)
 ```
