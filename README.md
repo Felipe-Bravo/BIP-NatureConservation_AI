@@ -12,5 +12,5 @@ Before we start with the hands-on exercice we could watch this video on the oppo
 
 After you will complete the hands-on exercice your will realize that normally in forest science ground data are scarce while machine learning algorithms tend to work better when more data are available. This video on [data augmentation](https://youtu.be/rH4GCkLa8uY) can provide ideas about how to get synthetic data to expand our datasets.
 
-If interested in get more information you can watch whole [Conference Artificial Intelligence and Ecosystems Management](https://youtube.com/playlist?list=PLsdzTKpJZZa5AL_644xLZjn25HxPpIW_F)
+If interested in get more information you can watch whole [Conference Artificial Intelligence and Ecosystems Management](https://youtube.com/playlist?list=PLsdzTKpJZZa5AL_644xLZjn25HxPpIW_F) organized by [SMART Global Ecosystems](https://smartglobalecosystems.uva.es/) and [iuFOR](https://iufor.uva.es) at Palencia (Spain), April 17th-21st 2023
 
