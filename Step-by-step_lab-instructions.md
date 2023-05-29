@@ -10,6 +10,8 @@
    Binomial logistic regression
    
    Naive bayes
+   
+   Suport Vector Machinge
 ### 8. Assessing ML models
 ---------------------
 
@@ -162,7 +164,7 @@ Our first ML model will be based on a [binomial logistic regression](https://en.
 ```{r, setup, include=FALSE}
 #building the logistic model
 
-logistic_model <- glm(Deadwood~ Y + Forest_type  + SDI  , data=trainData,
+logistic_model <- glm(Deadwood~ Forest_type  + SDI + NDVI  , data=trainData,
                       family= binomial)
 summary(logistic_model)
 validData$logistic_model_probs
@@ -183,10 +185,10 @@ ConfusionMatrix = table(validData$Deadwood, validData$predictions)
 ConfusionMatrix
 ```
 In this example our values are:
-          True Negative (TN): 218
-          False Negative (FN): 14
-          False Positive (FP): 1
-          True Positive (TP): 1
+          True Negative (TN): 226
+          False Negative (FN): 8
+          False Positive (FP): 6
+          True Positive (TP): 2
 
 and now we can compute the [sensitivity, specifity](https://en.wikipedia.org/wiki/Sensitivity_and_specificity) and [accuracy](https://en.wikipedia.org/wiki/Accuracy_and_precision#In_classification) of the model as follows:
 
@@ -206,7 +208,7 @@ specifity
 accuracy <- (218+1)/(218+1+14+1)
 accuracy
 ```
-It seems that accuracy is quite high (if you run the code, you get accuracy = 0.9049587) However, if you observe the original dataset, you can see that absence of deadwood (Deadwood=0) is the most frequent situation in our plots (over the whole dataset, no deadwood is the outcome in a 93,7% of the plots) Later we'll go back on this issue.
+It seems that accuracy is quite high (if you run the code, you get accuracy = 0.974359) However, if you observe the original dataset, you can see that absence of deadwood (Deadwood=0) is the most frequent situation in our plots (over the whole dataset, no deadwood is the outcome in a 93,7 % of the plots) Later we'll go back on this issue.
 
 **Naive Bayes
 
