@@ -299,4 +299,4 @@ K_NB
 K_svm
 ```
 the results is the logistic model is the best (K_log=0.3794876) been Naive Bayes quite similar (0.3948727) while the worst is the Support Vector Machine (0.6121799)
-Agreement is poor if K < 0.00, slight if 0.00 ≤ K ≤ 0.20, fair if 0.21 ≤ K ≤ 0.40, moderate if 0.41 ≤ κ ≤ 0.60, substantial if 0.61 ≤ K ≤ 0.80, almost perfect if κ > 0.80. In our case as higher is the Cohen's kappa more similar the outcome to choose by chance (see details at Landis and Koch, 1977: https://doi.org/10.2307/2529310 aso you can find the paper [here](https://pdfs.semanticscholar.org/7e73/43a5608fff1c68c5259db0c77b9193f1546d.pdf))
+Agreement is poor if K < 0.00, slight if 0.00 ≤ K ≤ 0.20, fair if 0.21 ≤ K ≤ 0.40, moderate if 0.41 ≤ κ ≤ 0.60, substantial if 0.61 ≤ K ≤ 0.80, almost perfect if κ > 0.80. In our case as higher is the Cohen's kappa more similar the outcome to choose by chance (see details at Landis and Koch, 1977: https://doi.org/10.2307/2529310 also you can find the paper [here](https://pdfs.semanticscholar.org/7e73/43a5608fff1c68c5259db0c77b9193f1546d.pdf))
