@@ -157,7 +157,7 @@ validData   <- data_ML[!sample, ]
 ```
 ### Fitting ML models
 
-**Binomial logistic regression
+*Binomial logistic regression*
 
 Our first ML model will be based on a [binomial logistic regression](https://en.wikipedia.org/wiki/Logistic_regression) where the response variable will be deadwood presence (Variable Deadwood in the dataset) After several attemps we arrived to a model where the explanatory variables are the latitude (Y), the forest type (Plantation=1, otherwise=0) and SDI ([Stand Density Index](https://en.wikipedia.org/wiki/Stand_density_index))
 
@@ -210,7 +210,7 @@ accuracy_log
 ```
 It seems that accuracy is quite high (if you run the code, you get accuracy = 0.974359) However, if you observe the original dataset, you can see that absence of deadwood (Deadwood=0) is the most frequent situation in our plots (over the whole dataset, no deadwood is the outcome in a 93,7 % of the plots) Later we'll go back on this issue.
 
-**Naive Bayes
+*Naive Bayes*
 
 Now we'll develop a [Naive Bayes classifier](https://en.wikipedia.org/wiki/Naive_Bayes_classifier) based on applying Bayes' theorem with strong (naive) independence assumptions between the features. As previously the response variable will be deadwood presence (Variable Deadwood in the dataset) . We'll develop the Naive Bayes classifier with the train dataset and later we'll test with the validation dataset. 
 
@@ -246,8 +246,7 @@ accuracy_NB
 ```
 Again the accuracy is quite high (if you run the code, you get accuracy = 0.9576271) But again, wait until we check the observed absence/presence of deadwood in the whole dataset.
 
-
-####### SVM: Support Vector Machine #############################
+*Support Vector Machine*
 
 Finnally we'll develop a [Support Vector Machine](https://en.wikipedia.org/wiki/Support_vector_machine) model based on constructs a hyperplane to classify the observations. As in the previous examples the response variable will be deadwood presence (Variable Deadwood in the dataset).
 
