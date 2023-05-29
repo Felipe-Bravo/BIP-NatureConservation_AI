@@ -199,14 +199,14 @@ Specificity = TN/(TN + FP) = (Number of true negative assessment)/(Number of all
 Accuracy = (TN + TP)/(TN+TP+FN+FP) = (Number of correct assessments)/(Number of all assessments)
 
 ```{r, setup, include=FALSE}
-sensitivity <- 1/(1+14)
-sensitivity
+sensitivity_log <- 226/(226+8)
+sensitivity_log
 
-specifity <- 218/(218+1)
-specifity
+specifity_log <- 226/(226+6)
+specifity_log
 
-accuracy <- (218+1)/(218+1+14+1)
-accuracy
+accuracy_log <- (226+2)/(218+2+8+6)
+accuracy_log
 ```
 It seems that accuracy is quite high (if you run the code, you get accuracy = 0.974359) However, if you observe the original dataset, you can see that absence of deadwood (Deadwood=0) is the most frequent situation in our plots (over the whole dataset, no deadwood is the outcome in a 93,7 % of the plots) Later we'll go back on this issue.
 
@@ -227,21 +227,77 @@ m
 table(predict(m, validData), validData[,4])
 ```
 In this example our values, from the confusion matrix are:
-          True Negative (TN): 219
-          False Negative (FN): 0
-          False Positive (FP): 2
-          True Positive (TP): 13
+          True Negative (TN): 224
+          False Negative (FN): 8
+          False Positive (FP): 8
+          True Positive (TP): 2
 
 and now we can compute the sensitivity, specifity and accuracy as above
 
 ```{r, setup, include=FALSE}
-sensitivity <- 2/(2+0)
-sensitivity
+sensitivity_NB <- 2/(2+8)
+sensitivity_NB
 
-specifity <- 219/(219+2)
-specifity
+specifity_NB <- 224/(224+8)
+specifity_NB
 
-accuracy <- (219+13)/(219+13+0+2)
-accuracy
+accuracy_NB <- (224+2)/(224+2+8+2)
+accuracy_NB
 ```
-Again the accuracy is quite high (if you run the code, you get accuracy = 0.991453) But again, wait until we check the observed absence/presence of deadwood in the whole dataset.
+Again the accuracy is quite high (if you run the code, you get accuracy = 0.9576271) But again, wait until we check the observed absence/presence of deadwood in the whole dataset.
+
+
+####### SVM: Support Vector Machine #############################
+
+Finnally we'll develop a [Support Vector Machine](https://en.wikipedia.org/wiki/Support_vector_machine) model based on constructs a hyperplane to classify the observations. As in the previous examples the response variable will be deadwood presence (Variable Deadwood in the dataset).
+
+```{r, setup, include=FALSE}
+svm = svm(Deadwood ~ SDI+NDVI, data = trainData, kernel = "linear", cost = 1000, scale = FALSE)
+print(svm)
+table(predict(svm, validData), validData[,4])
+```
+In this example our values, from the confusion matrix are:
+          True Negative (TN): 226
+          False Negative (FN): 6
+          False Positive (FP): 10
+          True Positive (TP): 0
+
+and now we can compute the sensitivity, specifity and accuracy as above
+
+```{r, setup, include=FALSE}
+#sensitivity, specifity and accuracy
+sensitivity_svm <- 10/(10+2)
+sensitivity_svm
+
+specifity_svm <- 226/(226+10)
+specifity_svm
+
+accuracy_svm <- (226+0)/(226+0+6+10)
+accuracy_svm
+```
+As previously the accuracy is quite high (if you run the code, you get accuracy = 0.9338843) Let's check now the outcomes (from the three methods) versus the observed absence/presence of deadwood in the whole dataset.
+
+### Assessing ML models
+
+To assess the algorithms performance we'll use the [Cohen's kappa](https://en.wikipedia.org/wiki/Cohen%27s_kappa) (1960) that we'll used to measures the agreement between algorithms outcome versus the possibility of be rigth by chance. We'll define the chance probability as the ratio between the most frequent categorie two raters who each classify in the validation dataset (232 observations, stands, with no deadwood)
+
+```{r, setup, include=FALSE}
+########## assessing the agreement between ML outcomes and results by chance
+#Cohen's kappa (1960)
+#count Deadwood classes in validData
+validData %>% count(Deadwood)
+```
+To compute Cohen's kappa (K) can be compute as:
+
+K = (accuracy - most frequent class proportion)/(1 - most frequent class proportion)
+
+```{r, setup, include=FALSE}
+K_log = (0.974359 - 0.9586777)/(1-0.9586777)
+K_NB = (0.974359 - 0.9576271)/(1-0.9576271)
+K_svm = (0.974359 - 0.9338843)/(1-0.9338843)
+K_log
+K_NB
+K_svm
+```
+the results is the logistic model is the best (K_log=0.3794876) been Naive Bayes quite similar (0.3948727) while the worst is the Support Vector Machine (0.6121799)
+Agreement is poor if K < 0.00, slight if 0.00 ≤ K ≤ 0.20, fair if 0.21 ≤ K ≤ 0.40, moderate if 0.41 ≤ κ ≤ 0.60, substantial if 0.61 ≤ K ≤ 0.80, almost perfect if κ > 0.80. In our case as higher is the Cohen's kappa more similar the outcome to choose by chance (see details at Landis and Koch, 1977: https://doi.org/10.2307/2529310 )
