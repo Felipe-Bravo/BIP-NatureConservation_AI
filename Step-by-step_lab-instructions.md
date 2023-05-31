@@ -68,7 +68,7 @@ Open QGIS and follow this instructions:
 1) Import it (plots_IFN3_Palencia.csv) by Layer (instruction in the top bar in QGIS) -> Add delimited text layer.
 The next dialogue should be fairly self explanatory. After clicking OK from this dialogue you will be asked for the coordinate system of your input coordinates. You can work through the list or use the Filter box to help find the right projection (WGS84 UTM fusseau 30).
 2) Once it's imported right click on the layer in the Layers panel, and choose "Export" and then 'Save features as".
-3) Save it as a shapefile, and change "Layer CRS" to "Selected CRS", then browse the projections (click on the globe) to find "WGS84 geographiques (dms). Select to add it to the map and click ok. You must indicate a new file name.
+3) Save it as a shapefile, and change "Layer CRS" to "Selected CRS", then browse the projections (click on the globe) to find "WGS84 geographiques (dms). Select to add it to the map and click ok. You must indicate a new file name ("plots_IFN3_Palencia-L05bandsn")
 4) Add the band 3 and 4 for each image from the unzip files (you can select and drop or follow the previous instruction to include new layers in the QGIS project)
 5) Now we can extract the information from the bands 3 and 4 and included as attributes in our "plots_IFN3_Palencia-L05bandsn" layer Select now the toolbox (the wheel in the upper bar) and choose Raster analysis -> Sample raster values You must select the input layer (first your original data set and then the one create by the process) and the image layer (one by one the selected bands images)
 
