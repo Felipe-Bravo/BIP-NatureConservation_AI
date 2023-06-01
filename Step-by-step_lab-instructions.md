@@ -199,7 +199,7 @@ Specificity = TN/(TN + FP) = (Number of true negative assessment)/(Number of all
 Accuracy = (TN + TP)/(TN+TP+FN+FP) = (Number of correct assessments)/(Number of all assessments)
 
 ```{r, setup, include=FALSE}
-sensitivity_log <- 226/(226+8)
+sensitivity_log <- 6/(6+8)
 sensitivity_log
 
 specifity_log <- 226/(226+6)
