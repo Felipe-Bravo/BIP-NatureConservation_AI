@@ -49,19 +49,6 @@ The actions you must do are the following:
 
 If you don't have the requested files, you can download it from here: https://uvaes-my.sharepoint.com/:f:/g/personal/felipe_bravo_uva_es/EoXqa5_mnn9Ok5ul_oMtaBgBtK-dSODS3MkZFN-J8gWKmA?e=PZikj3
 
-**OPTIONAL (to use GEE only)** If you use Google Earth Engine (instead Earth Explorer) you should convert the UTM coordinates to geographic coordinates by doing the following:
-Transform the X, Y coordinates from the original dataset to global latitude and longitude coordinates (We'll do in QGIS). Follow the instructions (ands see https://gis.stackexchange.com/questions/64535/converting-x-y-coordinates-to-longitude-latitude-using-qgis for details):
-
-0) Localize your data csv file in your computer and open QGIS (previously installed)
-1) Import it (plots_IFN3_Palencia.csv) by Layer (instruction in the top bar in QGIS) -> Add delimited text layer.
-The next dialogue should be fairly self explanatory. After clicking OK from this dialogue you will be asked for the coordinate system of your input coordinates. You can work through the list or use the Filter box to help find the right projection.
-2) Once it's imported right click on the layer in the Layers panel, and choose "Export" and then 'Save features as".
-3) Save it as a shapefile, and change "Layer CRS" to "Selected CRS", then browse the projections (click on the globe) to find "WGS84 geographiques (dms). Select to add it to the map and click ok. You must indicate a new file name
-4) Once your new shapefile is created, right click on it the layer's dialogue and "Open Attribute Table". Toggle editing (ctrl-E) and open the calculator (ctrl-I). Select "create a new field", call it "longitude", chang the output field type to "Decimal number (real)" and precision to "6" and make the expression "$X", repeat to created the field "latitude" with the expression "$Y". You should now have latitude and longitude in your attribute table.
-
-Optional:
-5) If you want it in a spreadsheet a quick solution is to click on the invert selection icon (Ctrl-R) and then copy to clipboard (Ctrl-C). You can then paste it directly into a spreadsheet.
-
 ### Extract base information to compute remote sensing metrics
 
 Open QGIS and follow this instructions:
@@ -307,3 +294,16 @@ Google colab provides us computational resources to conduct more advance process
  -  How to use [segment satellite imagery using the Segment Anything Model](https://colab.research.google.com/github/opengeos/segment-geospatial/blob/main/docs/examples/satellite.ipynb#scrollTo=ed9Z7T2DF07g) (SAM)
 
 Also you can find useful the links in the [readme file](https://github.com/Felipe-Bravo/BIP-NatureConservation_AI/blob/master/README.md)
+
+**OPTIONAL (to use GEE only)** If you use Google Earth Engine (instead Earth Explorer) you should convert the UTM coordinates to geographic coordinates by doing the following:
+Transform the X, Y coordinates from the original dataset to global latitude and longitude coordinates (We'll do in QGIS). Follow the instructions (ands see https://gis.stackexchange.com/questions/64535/converting-x-y-coordinates-to-longitude-latitude-using-qgis for details):
+
+0) Localize your data csv file in your computer and open QGIS (previously installed)
+1) Import it (plots_IFN3_Palencia.csv) by Layer (instruction in the top bar in QGIS) -> Add delimited text layer.
+The next dialogue should be fairly self explanatory. After clicking OK from this dialogue you will be asked for the coordinate system of your input coordinates. You can work through the list or use the Filter box to help find the right projection.
+2) Once it's imported right click on the layer in the Layers panel, and choose "Export" and then 'Save features as".
+3) Save it as a shapefile, and change "Layer CRS" to "Selected CRS", then browse the projections (click on the globe) to find "WGS84 geographiques (dms). Select to add it to the map and click ok. You must indicate a new file name
+4) Once your new shapefile is created, right click on it the layer's dialogue and "Open Attribute Table". Toggle editing (ctrl-E) and open the calculator (ctrl-I). Select "create a new field", call it "longitude", chang the output field type to "Decimal number (real)" and precision to "6" and make the expression "$X", repeat to created the field "latitude" with the expression "$Y". You should now have latitude and longitude in your attribute table.
+
+Optional:
+5) If you want it in a spreadsheet a quick solution is to click on the invert selection icon (Ctrl-R) and then copy to clipboard (Ctrl-C). You can then paste it directly into a spreadsheet.
