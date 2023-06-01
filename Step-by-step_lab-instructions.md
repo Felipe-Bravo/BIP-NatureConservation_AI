@@ -306,4 +306,4 @@ Agreement is poor if K < 0.00, slight if 0.00 ≤ K ≤ 0.20, fair if 0.21 ≤ K
 Google colab provides us computational resources to conduct more advance processes. Here some examples:
  -  How to use [segment satellite imagery using the Segment Anything Model](https://colab.research.google.com/github/opengeos/segment-geospatial/blob/main/docs/examples/satellite.ipynb#scrollTo=ed9Z7T2DF07g) (SAM)
 
-Also you can find useful the links in the [readme file] (https://github.com/Felipe-Bravo/BIP-NatureConservation_AI/blob/master/README.md)
+Also you can find useful the links in the [readme file](https://github.com/Felipe-Bravo/BIP-NatureConservation_AI/blob/master/README.md)
