@@ -14,3 +14,21 @@ After you will complete the hands-on exercice your will realize that normally in
 
 If interested in get more information you can watch whole [Conference Artificial Intelligence and Ecosystems Management](https://youtube.com/playlist?list=PLsdzTKpJZZa5AL_644xLZjn25HxPpIW_F) organized by [SMART Global Ecosystems](https://smartglobalecosystems.uva.es/) and [iuFOR](https://iufor.uva.es) at Palencia (Spain), April 17th-21st 2023
 
+### Reference texts
+
+- [Bravo et al, 2015 Análisis de datos selvícolas con R](https://uvadoc.uva.es/handle/10324/11889) in Spanish
+- [Hastie, T., Tibshirani, R., Friedman, J. 2017 The Elements of Statistical Learning Data Mining, Inference, and Prediction](https://web.stanford.edu/~hastie/ElemStatLearn/)
+- [James, G., Witten, D, Hastie, T., Tibshirani, R. 2017 An introduction to statistical learning with applications in R](http://www-bcf.usc.edu/~gareth/ISL/)
+- [James, G., Witten, D, Hastie, T., Tibshirani, R. 2021 An introduction to statistical learning with applications in R. 2nd Edition](https://www.statlearning.com/)
+- [Lovelace, R., Cheshire, J., Oldroyd, R. et al. 2016 Introduction to visualising spatial data in R](https://cran.r-project.org/doc/contrib/intro-spatial-rl.pdf)
+- [Robinson, A. 2016 icebreakeR](https://cran.r-project.org/doc/contrib/Robinson-icebreaker.pdf) and its [data and other materials](https://researchers.ms.unimelb.edu.au/~apro@unimelb/r-users.html)
+
+### Tools
+
+- [MIT Statistical Cheat Sheet](http://web.mit.edu/~csvoss/Public/usabo/stats_handout.pdf)
+- [Basic cheat sheet](http://github.com/rstudio/cheatsheets/raw/master/base-r.pdf)
+- [R Programming Cheat Sheet (just the basics)](http://datasciencefree.com/basicR.pdf)
+- [R Programming Cheat Sheet (advanced)](http://datasciencefree.com/advancedR.pdf)
+- [RStudio Cheat Sheets](https://rstudio.com/resources/cheatsheets/)
+- [Lineal regresión in R](https://www.usabart.nl/eval/cs-regression.pdf)
+
