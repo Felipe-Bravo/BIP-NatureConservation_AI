@@ -266,7 +266,7 @@ As previously the accuracy is quite high (if you run the code, you get accuracy 
 
 ### Assessing ML models
 
-To assess the algorithms performance we'll use the [Cohen's kappa](https://en.wikipedia.org/wiki/Cohen%27s_kappa) (1960) that we'll used to measures the agreement between algorithms outcome versus the possibility of be rigth by chance. We'll define the chance probability as the ratio between the most frequent categorie two raters who each classify in the validation dataset (232 observations, stands, with no deadwood)
+To assess the algorithms performance we'll use the [Cohen's Kappa](https://en.wikipedia.org/wiki/Cohen%27s_kappa) (1960) that we'll used to measures the agreement between algorithms outcome versus the possibility of be rigth by chance. We'll define the chance probability as the ratio between the most frequent category in the validation dataset (232 observations, stands, with no deadwood)
 
 ```{r, setup, include=FALSE}
 ########## assessing the agreement between ML outcomes and results by chance
