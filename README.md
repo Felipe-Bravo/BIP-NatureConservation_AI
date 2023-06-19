@@ -1,7 +1,9 @@
 ## BIP on Nature Conservation and Artificial Intelligence
 ### Marchine learning (ML) materials (Lab handouts) 
 prepared by Felipe Bravo [iuFOR](https://iufor.uva.es/) - [University of Valladolid](https://universityofvalladolid.uva.es/)
-with support from Dr. Dang Kinh Bac, [Vietnam National University-University of Science](http://english.hus.vnu.edu.vn/), to import satellite images and from [Andrés Bravo-Núñez](https://github.com/andbrav/) for ML algorithms developent and [Aitor Vázquez](https://github.com/aitorvv), iuFOR - University of Valladolid, to import the raw NFI dataset 
+with support from Dr. Dang Kinh Bac, [Vietnam National University-University of Science](http://english.hus.vnu.edu.vn/), to import satellite images and from [Andrés Bravo-Núñez](https://github.com/andbrav/) for ML algorithms developent and [Aitor Vázquez](https://github.com/aitorvv), iuFOR - University of Valladolid, to import the raw NFI dataset.
+
+This case study has been prepared through the Erasmus+ project VirtualForests (https://virtualforests.eu/) and was tested with the participants in the Blended Intensive Program Nature Conservation and Artificial Intelligence (https://portal3.ipb.pt/index.php/en/gri/blended-intensive-programmes) at IPB-Instituto Politécnico de Bragança, Portugal (https://portal3.ipb.pt/index.php/pt/ipb) in June 2023
 
 This repository includes the lab instructions and the datasets to complete the assignments.
 Users have to install [R](https://cran.r-project.org/), [RStudio](https://cran.r-project.org/) and [QGIS](https://qgis.org/). Additionally must have an account to use https://earthexplorer.usgs.gov/.
