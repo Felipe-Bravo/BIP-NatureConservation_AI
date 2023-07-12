@@ -1,5 +1,5 @@
 # Dead wood detection by ML
-## Workflow
+## Pipelin
 ### 1. Preparatory actions
 ### 2. Obtaining ground data
 ### 3. Importing remote sensing data from Earth Explorer
